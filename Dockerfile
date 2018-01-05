@@ -17,7 +17,8 @@ RUN yum install -y gcc gcc-c++ make openssl-devel aws-cli \
     cairo \
     cronie \ 
     tcsh \ 
-    wget
+    wget \
+    libgfortran
 
 #=========================================
 # Install Python 3.5 Packages for SIPM
