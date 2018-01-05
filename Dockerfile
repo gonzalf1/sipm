@@ -44,9 +44,6 @@ RUN pip install jupyter && \
     jupyter nbextension enable --py jupyter_spark && \
     jupyter nbextension enable --py widgetsnbextension
 
-RUN jupyter notebook --generate-config --allow-root
-COPY jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
-
 RUN pip install scipy scikit-learn pygments && \
     pip3 install scipy scikit-learn pygments pandas pyspark ipykernel ipython
     
@@ -66,6 +63,8 @@ RUN Rscript -e 'install.packages("quantregForest", repos=”http://cran.mtu.edu�
 RUN Rscript -e 'install.packages("ggplot2", repos=”http://cran.mtu.edu”)'
 RUN Rscript -e 'install.packages("e1071", repos=”http://cran.mtu.edu”)'
    
+RUN jupyter notebook --generate-config --allow-root
+COPY jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 #=========================================
 # Configure Volume
 #=========================================
