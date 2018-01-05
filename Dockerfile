@@ -55,13 +55,13 @@ RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noar
 RUN rm -rf /var/cache/yum/* && \
     yum clean all
     
-RUN Rscript -e 'install.packages("randomForest", repos=”http://cran.mtu.edu”)'
-RUN Rscript -e 'install.packages("mgcv", repos=”http://cran.mtu.edu”)'
-RUN Rscript -e 'install.packages("MASS", repos=”http://cran.mtu.edu”)'
-RUN Rscript -e 'install.packages("tree", repos=”http://cran.mtu.edu”)'
-RUN Rscript -e 'install.packages("quantregForest", repos=”http://cran.mtu.edu”)'
-RUN Rscript -e 'install.packages("ggplot2", repos=”http://cran.mtu.edu”)'
-RUN Rscript -e 'install.packages("e1071", repos=”http://cran.mtu.edu”)'
+RUN Rscript -e 'install.packages("randomForest", repos="http://cran.mtu.edu")'
+RUN Rscript -e 'install.packages("mgcv", repos="http://cran.mtu.edu")'
+RUN Rscript -e 'install.packages("MASS", repos="http://cran.mtu.edu")'
+RUN Rscript -e 'install.packages("tree", repos="http://cran.mtu.edu")'
+RUN Rscript -e 'install.packages("quantregForest", repos="http://cran.mtu.edu")'
+RUN Rscript -e 'install.packages("ggplot2", repos="http://cran.mtu.edu")'
+RUN Rscript -e 'install.packages("e1071", repos="http://cran.mtu.edu")'
    
 RUN jupyter notebook --generate-config --allow-root
 COPY jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
