@@ -18,8 +18,32 @@ RUN yum install -y gcc gcc-c++ make openssl-devel aws-cli \
     cronie \ 
     tcsh \ 
     wget \
-    libgfortran
+    libgfortran \ 
+    curl \
+    xml2 \
+    libxml2-devel \
+    cairo-devel \ 
+    giflib-devel \
+    libXt-devel    \
+    libssh    \
+    libssh-devel   \
+    libssh2-devel   \
+    libcurl-devel 
+    libgdal1 libgdal1-dev libgeos libgeos-dev cpp nano vimvim
+    
+RUN yum groupinstall "Development Tools"
+RUN yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel
+RUN yum install -y libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
 
+https://pkgsrc.joyent.com/packages/Linux/el6/trunk/x86_64/All/libiconv-1.14nb3.tgz
+#==========================
+RUN yum install mysql
+RUN mkdir /var/lib/mysql
+RUN yum install mysql-server
+RUN nano /etc/my.cnf
+RUN /etc/init.d/mysqld start
+RUN mysqladmin -u root password '123456789'
+RUN chkconfig mysqld on
 #=========================================
 # Install Python 3.5 Packages for SIPM
 #=========================================
@@ -28,7 +52,6 @@ RUN yum install -y python27-devel pandoc python35-devel python35-libs python35-s
 
 RUN /usr/bin/easy_install-3.5 pip &&\
     pip3 install --upgrade pip
-
 #=========================================
 # Install and configure python notebook
 #=========================================
@@ -45,8 +68,7 @@ RUN pip install jupyter && \
     jupyter nbextension enable --py widgetsnbextension
 
 RUN pip install scipy scikit-learn pygments && \
-    pip3 install scipy scikit-learn pygments pandas pyspark ipykernel ipython
-    
+    pip3 install scipy scikit-learn pygments pandas pyspark ipykernel ipython    
 #=========================================
 #install R
 #=========================================
