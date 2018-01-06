@@ -69,25 +69,31 @@ RUN pip install jupyter && \
     jupyter nbextension enable --py widgetsnbextension
 
 RUN pip install scipy scikit-learn pygments && \
-    pip3 install scipy scikit-learn pygments pandas pyspark ipykernel ipython    
+    pip3 install scipy scikit-learn pygments pandas pyspark ipykernel ipython readline-devel    
 #=========================================
 #install R
 #=========================================
-RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm && \
-    yum -y install R
-RUN rm -rf /var/cache/yum/* && \
-    yum clean all
-    
-RUN Rscript -e 'install.packages("randomForest", repos="http://cran.mtu.edu")'
-RUN Rscript -e 'install.packages("mgcv", repos="http://cran.mtu.edu")'
-RUN Rscript -e 'install.packages("MASS", repos="http://cran.mtu.edu")'
-RUN Rscript -e 'install.packages("tree", repos="http://cran.mtu.edu")'
-RUN Rscript -e 'install.packages("quantregForest", repos="http://cran.mtu.edu")'
-RUN Rscript -e 'install.packages("ggplot2", repos="http://cran.mtu.edu")'
-RUN Rscript -e 'install.packages("e1071", repos="http://cran.mtu.edu")'
+#RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm && \
+    #yum -y install R
+#RUN rm -rf /var/cache/yum/* && \
+    #yum clean all
+
+#RUN wget https://cran.cnr.berkeley.edu/src/base/R-3/R-3.4.3.tar.gz
+#RUN tar xf R-3.4.3.tar.gz
+
+#RUN yum -y install make libX11-devel.* libICE-devel.* libSM-devel.* libdmx-devel.* libx* xorg-x11* libFS* libX*  readline-devel gcc-gfortran gcc-c++ texinfo tetex
+
+
+
+#RUN Rscript -e 'install.packages("randomForest", repos="http://cran.mtu.edu")'
+#RUN Rscript -e 'install.packages("mgcv", repos="http://cran.mtu.edu")'
+#RUN Rscript -e 'install.packages("MASS", repos="http://cran.mtu.edu")'
+#RUN Rscript -e 'install.packages("tree", repos="http://cran.mtu.edu")'
+#RUN Rscript -e 'install.packages("quantregForest", repos="http://cran.mtu.edu")'
+#RUN Rscript -e 'install.packages("ggplot2", repos="http://cran.mtu.edu")'
+#RUN Rscript -e 'install.packages("e1071", repos="http://cran.mtu.edu")'
    
-RUN jupyter notebook --generate-config --allow-root
-COPY jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
+
 #=========================================
 # Configure Volume
 #=========================================
@@ -104,5 +110,8 @@ RUN chown root.root /etc/bootstrap.sh
 RUN chmod 700 /etc/bootstrap.sh
 
 EXPOSE 18080 7077 8888 80
+
+RUN jupyter notebook --generate-config --allow-root
+COPY jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 
 ENTRYPOINT ["/etc/bootstrap.sh"]
