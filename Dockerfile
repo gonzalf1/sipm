@@ -34,6 +34,12 @@ RUN yum install -y gcc gcc-c++ make openssl-devel aws-cli \
 RUN yum groupinstall "Development Tools"
 RUN yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel
 RUN yum install -y libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
+# Compilers and related tools:
+RUN yum groupinstall -y "development tools"
+# Libraries needed during compilation to enable all features of Python:
+yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
+# If you are on a clean "minimal" install of CentOS you also need the wget tool:
+yum install -y wget
 
 #libiconv problem
 #https://pkgsrc.joyent.com/packages/Linux/el6/trunk/x86_64/All/libiconv-1.14nb3.tgz
@@ -83,7 +89,7 @@ RUN pip install scipy scikit-learn pygments && \
 
 #RUN yum -y install make libX11-devel.* libICE-devel.* libSM-devel.* libdmx-devel.* libx* xorg-x11* libFS* libX*  readline-devel gcc-gfortran gcc-c++ texinfo tetex
 
-
+#RUN wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64"
 
 #RUN Rscript -e 'install.packages("randomForest", repos="http://cran.mtu.edu")'
 #RUN Rscript -e 'install.packages("mgcv", repos="http://cran.mtu.edu")'
