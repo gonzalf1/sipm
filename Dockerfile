@@ -35,7 +35,8 @@ RUN yum groupinstall "Development Tools"
 RUN yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel
 RUN yum install -y libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
 
-https://pkgsrc.joyent.com/packages/Linux/el6/trunk/x86_64/All/libiconv-1.14nb3.tgz
+#libiconv problem
+#https://pkgsrc.joyent.com/packages/Linux/el6/trunk/x86_64/All/libiconv-1.14nb3.tgz
 #==========================
 RUN yum install mysql
 RUN mkdir /var/lib/mysql
