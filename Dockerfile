@@ -29,7 +29,8 @@ RUN yum install -y gcc gcc-c++ make openssl-devel aws-cli \
     libssh-devel   \
     libssh2-devel   \
     libcurl-devel 
-    libgdal1 libgdal1-dev libgeos libgeos-dev cpp nano vimvim
+    nano \
+    vim
     
 RUN yum groupinstall "Development Tools"
 RUN yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel
