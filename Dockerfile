@@ -28,7 +28,7 @@ RUN yum install -y gcc gcc-c++ make openssl-devel aws-cli \
     libssh    \
     libssh-devel   \
     libssh2-devel   \
-    libcurl-devel 
+    libcurl-devel \
     nano \
     vim
     
