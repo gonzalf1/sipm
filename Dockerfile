@@ -32,7 +32,7 @@ RUN yum install -y gcc gcc-c++ make openssl-devel aws-cli \
     nano \
     vim
     
-RUN yum groupinstall "Development Tools"
+#RUN yum groupinstall "Development Tools"
 RUN yum install -y gcc-c++ patch readline readline-devel zlib zlib-devel
 RUN yum install -y libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel wget
 # Compilers and related tools:
