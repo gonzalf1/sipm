@@ -45,13 +45,13 @@ RUN yum install -y libyaml-devel libffi-devel openssl-devel make bzip2 autoconf 
 #libiconv problem
 #https://pkgsrc.joyent.com/packages/Linux/el6/trunk/x86_64/All/libiconv-1.14nb3.tgz
 #==========================
-RUN yum install mysql
-RUN mkdir /var/lib/mysql
-RUN yum install mysql-server
-RUN nano /etc/my.cnf
-RUN /etc/init.d/mysqld start
-RUN mysqladmin -u root password '123456789'
-RUN chkconfig mysqld on
+#RUN yum install mysql
+#RUN mkdir /var/lib/mysql
+#RUN yum install mysql-server
+#RUN nano /etc/my.cnf
+#RUN /etc/init.d/mysqld start
+#RUN mysqladmin -u root password '123456789'
+#RUN chkconfig mysqld on
 #=========================================
 # Install Python 3.5 Packages for SIPM
 #=========================================
