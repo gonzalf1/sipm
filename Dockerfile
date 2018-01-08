@@ -40,7 +40,7 @@ RUN yum groupinstall -y "development tools"
 # Libraries needed during compilation to enable all features of Python:
 RUN yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
 # If you are on a clean "minimal" install of CentOS you also need the wget tool:
-RUN  um install -y wget
+RUN  yum install -y wget
 
 #libiconv problem
 #https://pkgsrc.joyent.com/packages/Linux/el6/trunk/x86_64/All/libiconv-1.14nb3.tgz
