@@ -1,6 +1,6 @@
 FROM gonzalf1/sipm_container:2017.09
 
-#MAINTAINER FG
+MAINTAINER FG
 
 #ENV http_proxy proxy.sce.com:80
 #ENV https_proxy proxy.sce.com:80
