@@ -76,7 +76,7 @@ RUN pip install jupyter && \
     jupyter nbextension enable --py widgetsnbextension
 
 #RUN pip install scipy scikit-learn pygments && \
-    #pip3 install scipy scikit-learn pygments pandas pyspark ipykernel ipython readline-devel    
+   #pip3 install scipy scikit-learn pygments pandas pyspark ipykernel ipython readline-devel    
 #=========================================
 #install R
 #=========================================
